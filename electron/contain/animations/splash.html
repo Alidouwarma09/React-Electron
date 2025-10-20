@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chargement - OGB App</title>
+  <style>
+    /* Global reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Fond dégradé moderne */
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Particules de fond */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 15s infinite linear;
+    }
+
+    /* Logo moderne */
+    #ogb-logo {
+      font-size: 64px;
+      font-weight: 800;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
+      animation: logoGlow 3s ease-in-out infinite alternate;
+    }
+
+    /* Animation Lottie */
+    #lottie {
+      width: 50%;
+      height: 50%;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 0 15px rgba(79, 195, 247, 0.3));
+    }
+
+    /* Style du texte de chargement */
+    #loading-text {
+      font-size: 18px;
+      font-weight: 500;
+      text-align: center;
+      color: #e0f7fa;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 20px;
+    }
+
+    /* Barre de progression moderne */
+    .progress-container {
+      width: 300px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #4fc3f7, #29b6f6);
+      border-radius: 10px;
+      animation: progress 3s ease-in-out forwards;
+      box-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+    }
+
+    /* Animations */
+    @keyframes logoGlow {
+      0% {
+        text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+      }
+      100% {
+        text-shadow: 0 0 25px rgba(79, 195, 247, 0.8), 0 0 35px rgba(79, 195, 247, 0.6);
+      }
+    }
+
+    @keyframes progress {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #ogb-logo {
+        font-size: 48px;
+      }
+      
+      #lottie {
+        width: 70%;
+        height: 40%;
+      }
+      
+      .progress-container {
+        width: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particules de fond -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- Logo de l'entreprise OGB -->
+  <div id="ogb-logo">OGB</div>
+  
+  <!-- Animation Lottie -->
+  <div id="lottie"></div>
+  
+  <!-- Texte de chargement -->
+  <div id="loading-text">Initialisation de l'application</div>
+  
+  <!-- Barre de progression -->
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
+
+  <script src="lottie.min.js"></script>
+  <script>
+    // Création des particules de fond
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Taille aléatoire
+        const size = Math.random() * 10 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Position aléatoire
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Animation avec délai aléatoire
+        particle.style.animationDelay = `${Math.random() * 15}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+    
+    // Animation Lottie
+    var animation = lottie.loadAnimation({
+      container: document.getElementById('lottie'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'loading.json' // Animation de chargement moderne
+    });
+    
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', function() {
+      createParticles();
+      
+      // Simulation du chargement
+      setTimeout(function() {
+        document.getElementById('loading-text').textContent = "Chargement des données...";
+      }, 1000);
+      
+      setTimeout(function() {
+        document.getElementById('loading-text').textContent = "Presque terminé...";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
