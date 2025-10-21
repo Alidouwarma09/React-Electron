@@ -1,18 +1,36 @@
-# React + Vite
+# TailAdmin Vue.js Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Preview
+ - [Demo](https://themewagon.github.io/tailadmin-vuejs/)
 
-Currently, two official plugins are available:
+#### Download
+ - [Download from ThemeWagon](https://themewagon.com/themes/tailadmin-vuejs/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+### Getting Started
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+```bash
+# Install dependencies
+npm install
 
-Note: This will impact Vite dev & build performances.
+# Start development server
+npm run dev
 
-## Expanding the ESLint configuration
+# Build for production
+npm run build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Preview production build
+npm run preview
+```
+
+
+## Author 
+```
+Design and code is completely written by TailAdmin and development team. 
+```
+
+## License
+
+ - Design and Code is Copyright &copy; [TailAdmin](https://tailadmin.com/)
+ - Licensed cover under [MIT]
+ - Distributed by [ThemeWagon](https://themewagon.com)

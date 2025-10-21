@@ -1,4 +1,6 @@
-# Logs
+# ------------------------------
+# 🔹 Logs
+# ------------------------------
 logs
 *.log
 npm-debug.log*
@@ -7,18 +9,53 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# ------------------------------
+# 🔹 Node & Build Output
+# ------------------------------
+node_modules/
+dist/
+dist-ssr/
+build/
+coverage/
 *.local
+*.tsbuildinfo
 
-# Editor directories and files
+# ------------------------------
+# 🔹 Electron Build Output
+# ------------------------------
+release/
+ReactApp/release/
+*.exe
+*.asar
+*.zip
+*.dmg
+*.AppImage
+
+# ------------------------------
+# 🔹 Cypress (tests end-to-end)
+# ------------------------------
+cypress/videos/
+cypress/screenshots/
+
+# ------------------------------
+# 🔹 Editor Files
+# ------------------------------
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# ------------------------------
+# 🔹 OS & Platform Specific
+# ------------------------------
+.DS_Store
+.vercel
+
+# ------------------------------
+# 🔹 Temporary Files
+# ------------------------------
+*.tmp
